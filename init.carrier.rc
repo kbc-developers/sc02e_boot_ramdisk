@@ -9,6 +9,11 @@ on boot
 
 # FeliCa
     mkdir /efs/FeliCaLock 0770 system felicalock
+
+#ma34s fake custom
+	chmod 0755 /sbin/setcmdline
+	#chmod 0755 /sbin/cmdline.sh
+
 # JPN: For MobileTV [ISDBT] \android\device\samsung\smdk4x12\conf\init.rc
     chown system system /dev/isdbt
     chmod 0660 /dev/isdbt
@@ -47,7 +52,20 @@ service mfescand /system/bin/mfescand
      class main
      socket mfescand stream 600 system system
 
+#ma34s fake custom
+#service felica_cmdline /sbin/cmdline.sh
+service felica_cmdline /sbin/setcmdline
+    class main
+    user root
+    oneshot
+
 # for felica
+service mfdp /system/bin/mfdp
+    class core
+    user root
+    group system
+    oneshot
+
 service mfsc /system/bin/mfsc
     class core
     user root
