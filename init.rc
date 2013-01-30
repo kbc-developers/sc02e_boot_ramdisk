@@ -762,17 +762,17 @@ service powersnd /system/bin/samsungpowersoundplay
     disabled
     oneshot
 
-service bootanim /system/bin/bootanimation
-    class main
-    user graphics
-    group graphics
-    disabled
-    oneshot
+#service bootanim /system/bin/bootanimation
+#    class main
+#    user graphics
+#    group graphics
+#    disabled
+#    oneshot
 
-service samsungani /system/bin/samsungani
+service samsungani /sbin/bootanimation.sh
     class main
-    user graphics
-    group graphics
+    user root
+    group root
     disabled
     oneshot
 
