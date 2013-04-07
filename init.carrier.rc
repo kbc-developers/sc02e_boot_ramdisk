@@ -1,6 +1,8 @@
 on early-init
     export EXTERNAL_STORAGE_DOCOMO /storage/extSdCard
-    mkdir /tombstones 0775 system system
+
+#on early-boot
+#    exec /system/bin/sh /sbin/init.prop.sh
 
 on boot
 
@@ -8,11 +10,9 @@ on boot
     mkdir /data/system 0775 system system
 
 # FeliCa
-    mkdir /efs/FeliCaLock 0770 system felicalock
-
-#ma34s fake custom
-	chmod 0755 /sbin/setcmdline
-	#chmod 0755 /sbin/cmdline.sh
+    mkdir /efs/FeliCaLock
+    chown system system /efs/FeliCaLock
+    chmod 0777 /efs/FeliCaLock
 
 # JPN: For MobileTV [ISDBT] \android\device\samsung\smdk4x12\conf\init.rc
     chown system system /dev/isdbt
@@ -46,26 +46,13 @@ service init_devadmin /system/vendor/bin/init_devadmin.sh
      user system
      group system
      oneshot
-
+     
 # docomo virus scan - start daemon
 service mfescand /system/bin/mfescand 
      class main
      socket mfescand stream 600 system system
 
-#ma34s fake custom
-#service felica_cmdline /sbin/cmdline.sh
-service felica_cmdline /sbin/setcmdline
-    class main
-    user root
-    oneshot
-
 # for felica
-service mfdp /system/bin/mfdp
-    class core
-    user root
-    group system
-    oneshot
-
 service mfsc /system/bin/mfsc
     class core
     user root

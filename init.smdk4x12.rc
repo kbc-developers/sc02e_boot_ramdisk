@@ -1,5 +1,6 @@
 import init.smdk4x12.usb.rc
 import init.bt.rc
+import init.carrier.rc
 
 on init
     mkdir /mnt/shell/emulated 0700 shell shell
@@ -54,6 +55,9 @@ on fs
     
     chown radio system /efs
     chmod 0771 /efs
+
+# for felica
+    exec /sbin/felica_init.sh
 
 #MDM requirement
     mkdir /firmware 0771 system system
@@ -620,10 +624,10 @@ service sensorhubservice /system/bin/sensorhubservice
     group input
 
 # TVout
-#service TvoutService_C /system/bin/bintvoutservice
-#    class main
-#    user system
-#    group graphics
+service TvoutService_C /system/bin/bintvoutservice
+    class main
+    user system
+    group graphics
 
 
 on property:ro.tvout.enable=false
