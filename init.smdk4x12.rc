@@ -188,6 +188,9 @@ on fs
     mount_all /fstab.smdk4x12
     setprop ro.crypto.fuse_sdcard true
 
+# for felica
+    exec /sbin/felica_init.sh
+
 # for LogMeIn
     mount ext4 /dev/block/mmcblk0p13 /system rw wait remount
 
