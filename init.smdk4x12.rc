@@ -21,6 +21,7 @@ on init
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
     symlink /storage/sdcard1 /extSdCard
     symlink /storage/sdcard1 /mnt/extSdCard
+    symlink /storage/sdcard1 /storage/extSdCard
     symlink /storage/usbdisk0 /usbdisk0
     symlink /storage/usbdisk0 /mnt/usbdisk0
 

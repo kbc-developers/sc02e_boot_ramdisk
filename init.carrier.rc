@@ -1,5 +1,5 @@
 on early-init
-    export EXTERNAL_STORAGE_DOCOMO /storage/extSdCard
+#    export EXTERNAL_STORAGE_DOCOMO /storage/extSdCard
 
 #on early-boot
 #    exec /system/bin/sh /sbin/init.prop.sh
