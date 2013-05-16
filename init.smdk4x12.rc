@@ -47,13 +47,14 @@ on fs
 
 # override kernel modules
     mount tmpfs tmpfs /system/lib/modules
-    symlink /lib/modules/cifs.ko /system/lib/modules/cifs.ko
+    #symlink /lib/modules/cifs.ko /system/lib/modules/cifs.ko
     symlink /lib/modules/dhd.ko /system/lib/modules/dhd.ko
-    symlink /lib/modules/j4fs.ko /system/lib/modules/j4fs.ko
-    symlink /lib/modules/logger.ko /system/lib/modules/logger.ko
-    symlink /lib/modules/ntfs.ko /system/lib/modules/ntfs.ko
+    #symlink /lib/modules/j4fs.ko /system/lib/modules/j4fs.ko
+    #symlink /lib/modules/logger.ko /system/lib/modules/logger.ko
+    #symlink /lib/modules/ntfs.ko /system/lib/modules/ntfs.ko
+    symlink /lib/modules/btlock.ko /system/lib/modules/btlock.ko
     symlink /lib/modules/scsi_wait_scan.ko /system/lib/modules/scsi_wait_scan.ko
-    
+
     chown radio system /efs
     chmod 0771 /efs
 
