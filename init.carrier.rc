@@ -2,9 +2,13 @@ on early-init
     export EXTERNAL_STORAGE_DOCOMO /storage/extSdCard
     mkdir /tombstones 0775 system system
 
-on early-boot
+on post-fs-data
 #    exec /system/bin/sh /sbin/init.prop.sh
-
+service prefprop /sbin/init.prop.sh
+    class core
+    user root
+    group system
+    oneshot
 on boot
 
 # Create folder for RemoteLock service
