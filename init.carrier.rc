@@ -4,6 +4,10 @@
 on early-boot
     exec /system/bin/sh /sbin/init.prop.sh
 
+on post-fs-data
+	# for felica
+    exec /sbin/felica_init.sh
+
 on boot
 
 # Create folder for RemoteLock service
